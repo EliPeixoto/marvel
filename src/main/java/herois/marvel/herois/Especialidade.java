@@ -4,6 +4,12 @@ public enum Especialidade {
     INTELIGENCIA,
     FORCA,
     RIQUEZA,
-    VELOCIDADE
+    VELOCIDADE,
+
+    RESISTENCIA,
+
+    IMORTALIDADE,
+
+    TELEPATIA
 
 }

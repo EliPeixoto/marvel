@@ -6,6 +6,9 @@ import herois.marvel.herois.Herois;
 import herois.marvel.repository.HeroisRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +22,8 @@ public class HeroisController {
 
 
     @GetMapping
-    public List<DadosListagemHerois> listar() {
-        return repository.findAll().stream().map(DadosListagemHerois::new).toList();
+    public Page<DadosListagemHerois> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
+        return repository.findAll(paginacao).map(DadosListagemHerois::new);
     }
 
     @PostMapping
