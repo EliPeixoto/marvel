@@ -1,4 +1,4 @@
-package herois.marvel.entity;
+package herois.marvel.herois;
 
 public enum Especialidade {
     INTELIGENCIA,
