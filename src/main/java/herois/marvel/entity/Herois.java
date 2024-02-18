@@ -2,22 +2,31 @@ package herois.marvel.entity;
 
 import herois.marvel.endereco.DadosEndereco;
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 
 @Entity
-@Table(name="herois")
+@Table(name = "herois")
 public class Herois {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     long Id;
+
+    @NotBlank
     String nome;
+
+    @NotBlank
+    @Email
     String email;
+
+    @NotBlank
     String crh; // **Cadastro Regional de Herois
 
-     Especialidade especialidade;
+    @NotBlank
+    Especialidade especialidade;
 
 
-    DadosEndereco endereco;
+   /* DadosEndereco endereco;*/
 }
