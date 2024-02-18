@@ -1,6 +1,7 @@
 package herois.marvel.controller;
 
 import herois.marvel.herois.DadosCadastroHerois;
+import herois.marvel.herois.DadosListagemHerois;
 import herois.marvel.herois.Herois;
 import herois.marvel.repository.HeroisRepository;
 import jakarta.validation.Valid;
@@ -18,8 +19,8 @@ public class HeroisController {
 
 
     @GetMapping
-    public List<Herois> listar() {
-        return repository.findAll();
+    public List<DadosListagemHerois> listar() {
+        return repository.findAll().stream().map(DadosListagemHerois::new).toList();
     }
 
     @PostMapping
